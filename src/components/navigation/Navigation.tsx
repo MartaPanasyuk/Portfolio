@@ -10,10 +10,10 @@ interface NavigationButtonProps {
 }
 
 const ANGLE_INCREMENT = 360 / NavigationList.length;
-const RADIUS = 20; // Use a numeric value for easier calculations
+const RADIUS = 20;
 
 const calculatePosition = (index: number) => {
-  const angleRad = ((index * ANGLE_INCREMENT - 90) * Math.PI) / 180; // Subtract 90 degrees to start from the top
+  const angleRad = ((index * ANGLE_INCREMENT - 90) * Math.PI) / 180; 
   const x = RADIUS * Math.cos(angleRad);
   const y = RADIUS * Math.sin(angleRad);
   return { x, y };
@@ -22,15 +22,15 @@ const calculatePosition = (index: number) => {
 const Navigation: React.FC<NavigationButtonProps> = () => {
   return (
     <div className='w-full fixed h-screen flex items-center justify-center'>
-      <div className='relative w-[40vw] h-[40vw]'> {/* Set a fixed size for the container */}
+      <div className='relative w-[40vw] h-[40vw]'>
         {NavigationList.map((btn, index) => {
           const { x, y } = calculatePosition(index);
           return (
             <button 
               key={index} 
-              className='absolute transform -translate-x-1/2 -translate-y-1/2' // Center the button on its position
+              className='absolute transform -translate-x-1/2 -translate-y-1/2' 
               style={{
-                left: `${50 + x * 2.5}%`, // Adjust the multiplier to control the spread
+                left: `${50 + x * 2.5}%`,
                 top: `${50 + y * 2.5}%`
               }}
             >
