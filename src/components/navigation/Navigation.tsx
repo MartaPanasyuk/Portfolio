@@ -4,7 +4,7 @@ import { NavigationList } from './navigationData';
 import NavigationButton from './NavigationButton';
 
 const ANGLE_INCREMENT = 360 / NavigationList.length;
-const RADIUS = 20;
+const RADIUS = 250;
 
 const calculatePosition = (index: number) => {
   const angleRad = ((index * ANGLE_INCREMENT - 90) * Math.PI) / 180; 
@@ -20,7 +20,7 @@ const calculatePosition = (index: number) => {
 const Navigation: React.FC = () => {
   return (
     <div className='w-full fixed h-screen flex items-center justify-center'>
-      <div className='relative w-[80vw] h-[80vw] max-w-[500px] max-h-[500px]'>
+      <div className='w-max flex items-center justify-normal relative hover:pause animate-spin-slow'>
         {NavigationList.map((btn, index) => {
           const { x, y } = calculatePosition(index);
           return (
