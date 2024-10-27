@@ -54,8 +54,13 @@ const NavigationButton: React.FC<NavigationButtonProps> = ({x, y, label, link, i
                    hover:shadow-glass-sm' 
           aria-label={label}
         >
-          <span className='relative peer w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause group-hover:text-accent'>{getIcon(icon)}</span>
-          <span className='absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2 bg-background text-foreground text-sm rounded-md shadow-lg whitespace-nowrap'>{label}</span>
+          <span className='relative w-14 h-14 p-4 animate-spin-slow-reverse group-hover:pause hover:text-accent'>{getIcon(icon)}
+            <span className='peer bg-transparent absolute top-0 left-0 w-full h-full'/>
+          <span className='absolute hidden peer-hover:block px-2 py-1 left-full mx-2 top-1/2 -translate-y-1/2
+                   text-accent text-sm rounded-md whitespace-nowrap bg-background/20 border border-accent/30 border-solid backdrop-blur-[6px] 
+                   shadow-glass-inset'>{label}</span>
+
+          </span>
         </Link>
       </div>
     );

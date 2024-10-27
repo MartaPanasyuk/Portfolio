@@ -20,7 +20,7 @@ const calculatePosition = (index: number) => {
 const Navigation: React.FC = () => {
   return (
     <div className='w-full fixed h-screen flex items-center justify-center'>
-      <div className='w-max flex items-center justify-normal relative hover:pause animate-spin-slow'>
+      <div className='w-max flex items-center justify-normal relative hover:pause animate-spin-slow group'>
         {NavigationList.map((btn, index) => {
           const { x, y } = calculatePosition(index);
           return (
